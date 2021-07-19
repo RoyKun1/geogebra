@@ -1,0 +1,70 @@
+# Setting the state of objects
+
+- `void deleteObject(String objName)`
+  - 删除传入的对象
+- `void setAuxiliary(geo, true/false)`
+  - 从5.0版开始维护
+  - 影响或不影响geo对象的“辅助对象”的状态
+- `void setValue(String objName, double value)`
+  - 给指定对象设置双精度值；如果是布尔对象，设置1代表true，其他任何值都代表false
+- `void setTextValue(String objName, String value)`
+  - 给指定对象设置文本值，如果设置其他类型值则什么都不做
+- `void setListValue(String objName, int i, double value)`
+  - 给位置 'i' 的列表的元素设置双精度值
+- `void setCoords(String objName, double x, double y)`和`void setCoords(String objName, double x, double y, double z)`
+  - 设置对象的坐标。 注意：如果指定的对象不是点、向量、线或绝对定位的对象（文本、按钮、复选框、输入框），则什么都不做
+- `void setCaption(String objName, String caption)`
+  - 给指定对象设置标题
+- `void setColor(String objName, int red, int green, int blue)`
+  - 给指定对象设置颜色
+- `void setVisible(String objName, boolean visible)`
+  - 在图形窗口中显示或者隐藏对象
+- `void setLabelVisible(String objName, boolean visible)`
+  - 设置对象标签显示或隐藏
+- `void setLabelStyle(String objName, int style)`
+  - 设置对象标签的样式
+  - 可能的标签样式为 NAME = 0、NAME_VALUE = 1、VALUE = 2 和CAPTION = 3（ 3.2版本）
+- `void setFixed(String objName, boolean fixed, boolean selectionAllowed)`
+  - 设置对象是否锁定
+- `void setTrace(String objName, boolean flag)`
+  - 是否跟踪指定对象
+- `boolean renameObject(String oldObjName, String newObjName)`
+  - 重命名
+  - 返回是否修改成功
+- `void setLayer(String objName, int layer)`
+  - 设置对象处于第几层
+- `void setLayerVisible(int layer, boolean visible)`
+  - 显示或隐藏指定层中的所有对象
+- `void setLineStyle(String objName, int style)`
+  - 设置对象的线条样式
+  - 0到4五种选择
+- `void setLineThickness(String objName, int thickness)`
+  - 设置对象的厚度
+  - 1到13， -1表示默认值
+- `void setPointStyle(String objName, int style)`
+  - 设置点的样式
+  - -1 默认，0 实心圆，1 十字，2 圆，3 加，4 实心菱形，5 空心菱形，6 三角形（北），7 三角形（南），8 三角形（东），9 三角形（西）
+- `void setPointSize(String objName, int size)`
+  - 设置点的大小
+  - 1到9
+- `void setDisplayStyle(String objName, String style)`
+  - 设置对象的显示样式
+  - 样式应该是“parametric”、“explicit”、“implicit”、“specific”之一
+- `void setFilling(String objName, double filling)`
+  - 设置对象的填充
+  - 0到1
+- `String getPNGBase64(double exportScale, boolean transparent, double DPI)`
+  - 例如：var str = ggbApplet.getPNGBase64(1, true, 72);
+  - DPI：每英寸长度内的像素点数
+- `void exportSVG(String filename)`或`void exportSVG(function callback)`
+  - 到此图形为 SVG 并将其下载为给定的文件名或将其发送到回调函数使用
+- `void exportPDF(double scale, String filename, String sliderLabel)`或`void exportPDF(double scale, function callback, String sliderLabel)`
+  - 呈现为 PDF 并将其下载为给定的文件名或将其发送到回调函数
+- `void getScreenshotBase64(function callback)`
+  - 以 PNG 格式获取整个小程序的屏幕截图，并转为 base64 编码字符串发送到回调函数
+- `boolean writePNGtoFile(String filename, double exportScale, boolean transparent, double DPI)`
+  - 导出为PNG图片文件
+- `boolean isIndependent(String objName)`
+  - 检查对象是否独立
+- `boolean isMoveable(String objName)`
+  - 检查对象是否可移动
